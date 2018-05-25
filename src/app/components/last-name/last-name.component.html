@@ -1,0 +1,22 @@
+<div class="wrapper">
+
+  <form (ngSubmit)="save()">
+  
+    <label for="last-name">Enter last name: </label>
+    <input type="text" name="last" id="last-name" [(ngModel)]="name.last">
+  
+    <button type="submit">submit</button>
+  </form>
+  
+  <hr>
+  <p>name.last (local): {{ name.last }}</p>
+  <!-- <p>name.last (from service): {{ name.last }}</p> -->
+  <p>lastName (local): {{ lastName }}</p>
+  
+  <hr>
+  <app-full-name-revealer></app-full-name-revealer>
+  <!-- <app-full-name-revealer [lastName]="name.last"></app-full-name-revealer> -->
+  <!-- <app-full-name-revealer [lastName]="name.last" (setLastName)="setLastName($event)"></app-full-name-revealer> -->
+  
+</div>
+  

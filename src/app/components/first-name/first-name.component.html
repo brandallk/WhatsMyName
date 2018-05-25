@@ -1,0 +1,21 @@
+<div class="wrapper">
+
+  <form (ngSubmit)="save()">
+  
+    <label for="first-name">Enter first name: </label>
+    <input type="text" name="first" id="first-name" [(ngModel)]="name.first">
+  
+    <button type="submit">submit</button>
+  </form>
+  
+  <hr>
+  <p>name.first (local): {{ name.first }}</p>
+  <!-- <p>name.first (from service): {{ name.first }}</p> -->
+  <p>firstName (local): {{ firstName }}</p>
+  
+  <hr>
+  <app-full-name-revealer></app-full-name-revealer>
+  <!-- <app-full-name-revealer [firstName]="name.first"></app-full-name-revealer> -->
+  <!-- <app-full-name-revealer [firstName]="name.first" (setFirstName)="setFirstName(firstName)"></app-full-name-revealer> -->
+  
+</div>
