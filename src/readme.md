@@ -8,13 +8,13 @@ Links:
 
 Some ways to communicate between components in Angular2+:
 
-* (backend db + API calls or web socket)
-
 * @Input/@Output communication between parent/child components
 
 * @ViewChild/@ViewChildren access to child component from parent
 
 * basic services
+
+* services relaying property values via component getters and Angular change detection
 
 * reactive (RxJS) observer/subscriber notifications using services
 
@@ -27,3 +27,5 @@ Some ways to communicate between components in Angular2+:
 * session variables
 
 * in-memory db (e.g. Redis)
+
+* (backend db + API calls or web socket)

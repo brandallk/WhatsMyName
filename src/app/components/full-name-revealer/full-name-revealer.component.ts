@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Name } from '../../models/name.model';
-// import { NameService } from '../../services/name-service.service';
 
 @Component({
   selector: 'app-full-name-revealer',
@@ -16,23 +15,14 @@ export class FullNameRevealerComponent implements OnInit {
 
   showFullName: boolean = false;
 
-  // @Input() firstName: string;
-  // @Output() setFirstName = new EventEmitter();
-  // @Input() lastName: string;
-  // @Output() setLastName = new EventEmitter();
-
-  constructor(
-    // private nameService: NameService
-  ) {
+  constructor() {
     this.name = new Name();
-    // this.name = this.nameService.name;
   }
 
   ngOnInit() {
   }
 
   reveal(): void {
-    // this.setFirstAndLast();
 
     this.fullName = this.name.full;
     this.showFullName = true;
@@ -40,20 +30,5 @@ export class FullNameRevealerComponent implements OnInit {
       this.showFullName = false;
     }, 3000);
   }
-
-  // setFirstAndLast(): void {
-  //   this.name.first = this.firstName;
-  //   this.name.last = this.lastName;
-  // }
-
-  // saveFirstName(): void {
-  //   this.firstName = this.name.first;
-  //   this.setFirstName.emit(this.firstName);
-  // }
-
-  // saveLastName() {
-  //   this.lastName = this.name.last;
-  //   this.setLastName.emit(this.lastName);
-  // }
 
 }

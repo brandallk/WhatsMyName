@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Name } from '../../models/name.model';
-// import { NameService } from '../../services/name-service.service';
-
 @Component({
   selector: 'app-first-name',
   templateUrl: './first-name.component.html',
@@ -14,11 +12,8 @@ export class FirstNameComponent implements OnInit {
   lastName: string = '?';
   fullName: string = '?';
 
-  constructor(
-    // private nameService: NameService
-  ) {
+  constructor() {
     this.name = new Name();
-    // this.name = this.nameService.name;
   }
 
   ngOnInit() {
@@ -26,11 +21,6 @@ export class FirstNameComponent implements OnInit {
 
   save(): void {
     this.firstName = this.name.first;
-  }
-
-  setFirstName(firstName) {
-    this.name.first = firstName;
-    this.save();
   }
 
 }
