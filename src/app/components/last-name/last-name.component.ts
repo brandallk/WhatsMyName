@@ -9,22 +9,18 @@ import { NameService } from '../../services/name-service.service';
 })
 export class LastNameComponent implements OnInit {
 
-  name: Name;
-  firstName: string = '?';
-  lastName: string = '?';
-  fullName: string = '?';
-
-  constructor(
-    private nameService: NameService
-  ) {
-    this.name = this.nameService.name;
+  constructor(private nameService: NameService) {
   }
 
   ngOnInit() {
   }
 
-  save(): void {
-    this.lastName = this.name.last;
+  get lastName(): Name['last'] {
+    return this.nameService.name.last;
+  }
+
+  set lastName(value: string) {
+    this.nameService.name.last = value;
   }
 
 }

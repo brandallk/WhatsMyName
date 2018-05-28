@@ -9,34 +9,39 @@ import { NameService } from '../../services/name-service.service';
 })
 export class FullNameRevealerComponent implements OnInit {
 
-  name: Name;
-  firstName: string = '?';
-  lastName: string = '?';
-  fullName: string = '?';
-
   showFullName: boolean = false;
 
-  constructor(
-    private nameService: NameService
-  ) {
-    this.name = this.nameService.name;
+  constructor(private nameService: NameService) {
   }
 
   ngOnInit() {
   }
 
-  reveal(): void {
+  get firstName(): Name['first'] {
+    return this.nameService.name.first;
+  }
 
-    this.fullName = this.name.full;
+  set firstName(value: string) {
+    this.nameService.name.first = value;
+  }
+
+  get lastName(): Name['last'] {
+    return this.nameService.name.last;
+  }
+
+  set lastName(value: string) {
+    this.nameService.name.last = value;
+  }
+
+  get fullName(): Name['full'] {
+    return this.nameService.name.full;
+  }
+
+  reveal(): void {
     this.showFullName = true;
     setTimeout(() => {
       this.showFullName = false;
     }, 3000);
-  }
-
-  saveName(): void {
-    this.firstName = this.name.first;
-    this.lastName = this.name.last;
   }
 
 }

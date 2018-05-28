@@ -1,15 +1,13 @@
 <div class="wrapper">
 
-  <form (ngSubmit)="save()">
+  <form>
   
     <label for="last-name">Enter last name: </label>
-    <input type="text" name="last" id="last-name" [(ngModel)]="name.last">
+    <input type="text" name="last" id="last-name" [(ngModel)]="lastName">
   
-    <button type="submit">submit</button>
   </form>
   
   <hr>
-  <p>name.last (from service): {{ name.last }}</p>
   <p>lastName (local): {{ lastName }}</p>
   
   <hr>
