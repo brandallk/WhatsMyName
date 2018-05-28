@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 
-// import { NameService } from './services/name-service.service';
+import { NameService } from './services/name-service.service';
 
 
 import { AppComponent } from './app.component';
@@ -34,7 +34,7 @@ const routes: Routes = [
     FormsModule
   ],
   providers: [
-    // NameService
+    NameService
   ],
   bootstrap: [AppComponent]
 })
