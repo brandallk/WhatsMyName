@@ -1,40 +1,52 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Name } from '../../models/name.model';
 import { NameService } from '../../services/name-service.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-full-name-revealer',
   templateUrl: './full-name-revealer.component.html',
   styleUrls: ['./full-name-revealer.component.css']
 })
-export class FullNameRevealerComponent implements OnInit {
+export class FullNameRevealerComponent implements OnInit, OnDestroy {
 
+  name: Name;
+  nameSubscription: Subscription;
   showFullName: boolean = false;
 
   constructor(private nameService: NameService) {
   }
 
   ngOnInit() {
+    this.nameSubscription = this.nameService.name.subscribe(updatedName => {
+      this.name = updatedName;
+    });
+  }
+
+  ngOnDestroy() {
+    this.nameSubscription.unsubscribe();
   }
 
   get firstName(): Name['first'] {
-    return this.nameService.name.first;
+    return this.name.first;
   }
 
   set firstName(value: string) {
-    this.nameService.name.first = value;
+    this.name.first = value;
+    this.nameService.updateName(this.name);
   }
 
   get lastName(): Name['last'] {
-    return this.nameService.name.last;
+    return this.name.last;
   }
 
   set lastName(value: string) {
-    this.nameService.name.last = value;
+    this.name.last = value;
+    this.nameService.updateName(this.name);
   }
 
   get fullName(): Name['full'] {
-    return this.nameService.name.full;
+    return this.name.full;
   }
 
   reveal(): void {
