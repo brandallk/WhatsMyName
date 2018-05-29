@@ -1,3 +1,8 @@
+<div class="nav">
+  <a [routerLink]="['/set-first-name']" [queryParams]="{'first-name': firstName, 'last-name': lastName}">First Name</a>
+  <a [routerLink]="['/set-last-name']" [queryParams]="{'first-name': firstName, 'last-name': lastName}">Last Name</a>
+</div>
+  
 <div class="wrapper">
 
   <form (ngSubmit)="save()">
@@ -13,7 +18,7 @@
   <p>lastName (local): {{ lastName }}</p>
   
   <hr>
-  <app-full-name-revealer [lastName]="name.last" (setLastName)="setLastName($event)"></app-full-name-revealer>
+  <app-full-name-revealer [firstName]="firstName" [lastName]="lastName" (setFirstName)="setFirstName($event)" (setLastName)="setLastName($event)"></app-full-name-revealer>
   
 </div>
   

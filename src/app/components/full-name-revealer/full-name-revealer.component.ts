@@ -9,7 +9,7 @@ import { Name } from '../../models/name.model';
 export class FullNameRevealerComponent implements OnInit {
 
   name: Name;
-  fullName: string = '?';
+  fullName: string = "";
 
   showFullName: boolean = false;
 
@@ -41,8 +41,6 @@ export class FullNameRevealerComponent implements OnInit {
   }
 
   saveName(): void {
-    this.firstName = this.name.first;
-    this.lastName = this.name.last;
     this.setFirstName.emit(this.firstName);
     this.setLastName.emit(this.lastName);
   }

@@ -11,9 +11,9 @@ import { FullNameRevealerComponent } from './components/full-name-revealer/full-
 
 
 const routes: Routes = [
-  { path: 'first-name', component: FirstNameComponent },
-  { path: 'last-name', component: LastNameComponent },
-  { path: '', redirectTo: '/first-name', pathMatch: 'full' },
+  { path: 'set-first-name', component: FirstNameComponent },
+  { path: 'set-last-name', component: LastNameComponent },
+  { path: '', redirectTo: '/set-first-name', pathMatch: 'full' },
   { path: '**', component: FirstNameComponent }
 ];
 
